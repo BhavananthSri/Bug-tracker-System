@@ -1,6 +1,5 @@
 import mysql.connector
 
-# connect to mysql
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -13,9 +12,6 @@ cursor = conn.cursor()
 print("connected to dev_bugtracker_system successfully!\n")
 
 
-# -----------------------------
-# create bug
-# -----------------------------
 def create_bug():
     title = input("enter bug title: ")
     description = input("enter description: ")
@@ -36,9 +32,6 @@ def create_bug():
     print("bug added successfully!\n")
 
 
-# -----------------------------
-# view bugs (with join)
-# -----------------------------
 def view_bugs():
     query = """
     select 
@@ -62,9 +55,6 @@ def view_bugs():
     print()
 
 
-# -----------------------------
-# update bug status
-# -----------------------------
 def update_bug_status():
     bug_id = int(input("enter bug id: "))
     status = input("enter new status (open/in progess/resolved): ")
@@ -76,9 +66,6 @@ def update_bug_status():
     print("bug status updated!\n")
 
 
-# -----------------------------
-# delete bug
-# -----------------------------
 def delete_bug():
     bug_id = int(input("enter bug id to delete: "))
 
@@ -89,9 +76,6 @@ def delete_bug():
     print("bug deleted successfully!\n")
 
 
-# -----------------------------
-# main menu
-# -----------------------------
 while True:
     print("1. create bug")
     print("2. view bugs")
@@ -115,4 +99,5 @@ while True:
         print("invalid choice\n")
 
 conn.close()
+
 print("connection closed.")
